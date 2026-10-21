@@ -1,0 +1,15 @@
+runtime/
+
+# Чужие списки слов лежат локально и в репозиторий не входят.
+words/
+Words/
+
+__pycache__/
+*.py[cod]
+*.pyo
+desktop.ini
+Thumbs.db
+*.lnk
+.DS_Store
+*.log
+tmp/

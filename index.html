@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodenamesPad — пульт</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="pult">
+  <header class="bar">
+    <div class="brand">КОДОВЫЕ ИМЕНА <span>пульт</span></div>
+    <div class="bar-actions">
+      <button type="button" id="hallBtn" title="Открыть зал на другом мониторе. Ещё раз — другой монитор">Экран зала</button>
+      <button type="button" id="undoBtn" title="Отменить последнее действие. Таблицу целиком не сбрасывает">Отменить</button>
+      <span id="toast" class="toast" hidden></span>
+    </div>
+  </header>
+  <p class="hint">Ключ только здесь. Счёт = победы × 10 + запас. Пропуск = победа с запасом 4.</p>
+
+  <section class="setup" id="setup">
+    <div>
+      <label>Команды, по одной в строке
+        <textarea id="teams">Команда 1
+Команда 2
+Команда 3
+Команда 4</textarea>
+      </label>
+    </div>
+    <div class="side">
+      <label>Формат
+        <select id="format">
+          <option value="robin">Круговая</option>
+          <option value="swiss">Швейцарская</option>
+          <option value="free">Свободные пары</option>
+        </select>
+      </label>
+      <label>Туров в швейцарской
+        <input id="rounds" type="number" min="1" max="12" value="3">
+      </label>
+      <p class="format-hint" id="formatHint"></p>
+      <label>Набор слов
+        <select id="pack"></select>
+      </label>
+      <div class="row">
+        <button type="button" id="packEdit" title="Изменить слова выбранного набора">Править набор</button>
+        <button type="button" id="packLoad" title="Загрузить свой набор: через запятую, по строкам или JSON">Загрузить файл</button>
+        <button type="button" id="packExport" title="Скачать текущий набор файлом">Скачать</button>
+      </div>
+      <p class="note">Набор «Площадка» — свой, не карточки из коробки. Свой файл: слова через запятую, по строкам или JSON с полем words.</p>
+      <button type="button" id="build" class="primary" title="Составить пары и пустую таблицу из списка команд">Сформировать турнир</button>
+    </div>
+  </section>
+
+  <section class="play" id="play" hidden></section>
+
+  <dialog id="packDlg">
+    <form method="dialog">
+      <h2>Набор слов</h2>
+      <label>Название
+        <input id="packName" type="text">
+      </label>
+      <label>Слова, через запятую или по одному в строке
+        <textarea id="packWords" rows="14"></textarea>
+      </label>
+      <p class="note" id="packCount"></p>
+      <div class="row">
+        <button type="button" id="packSave" class="primary" title="Сохранить набор в программе">Сохранить</button>
+        <button type="button" id="packDelete" class="is-danger" title="Удалить этот набор. Встроенный не удаляется">Удалить</button>
+        <button value="cancel" title="Закрыть без сохранения">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/words.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/operator.js"></script>
+</body>
+</html>
