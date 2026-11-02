@@ -616,6 +616,9 @@ body.hall {
   font-size: 0.72em;
 }
 
+.past-clues b.is-red { color: #ff777b; }
+.past-clues b.is-blue { color: #79a5ff; }
+
 .hall-clock {
   font-variant-numeric: tabular-nums;
   min-width: 5ch;
