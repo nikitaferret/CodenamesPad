@@ -86,8 +86,8 @@
         const clues = (game.log || []).filter((item) => item.type === "clue");
         const past = (game.phase === "guess" ? clues.slice(0, -1) : clues).slice(-4);
         const pastHtml = past.length
-          ? "<div class=\"hall-foot\"><div class=\"past-clues\"><span>раньше</span>" + past.map((item) => "<b>" + esc(item.text) + " · " + esc(item.countLabel) + "</b>").join("") + "</div></div>"
-          : "";
+        ? "<div class=\"hall-foot\"><div class=\"past-clues\"><span>раньше</span>" + past.map((item) => "<b class=\"" + colorOf(game, item.team) + "\">" + esc(item.text) + " · " + esc(item.countLabel) + "</b>").join("") + "</div></div>"
+         : "";
         const timers = st.timers || {};
         const clock = timers.enabled
           ? "<div class=\"hall-clock" + (timers.left <= 10 ? " is-danger" : "") + "\">" + clockText(timers.left) + "</div>"
